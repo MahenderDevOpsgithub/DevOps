@@ -1,8 +1,8 @@
 class ssh {
-          $pack1=$osfamily? {
-               'RedHat' => 'openssh',
-               'Debian' => 'ssh',
-               'Solaris' => 'ssh',
+          case $osfamily {
+               'RedHat': {$pack1='openssh'}
+               'Debian': {$pack1='ssh'}
+               'Solaris': {$pack1='ssh'}
            }
      package { 'openssh':
                 name => $pack1, 
