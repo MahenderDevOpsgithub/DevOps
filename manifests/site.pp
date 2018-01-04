@@ -47,4 +47,5 @@ node 'server2.abc.com' {
 #include motdsample
 include ssh
 include xyz
+include vsftpd
 }
