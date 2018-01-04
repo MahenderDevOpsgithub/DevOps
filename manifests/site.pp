@@ -46,4 +46,5 @@ node 'server2.abc.com' {
 #include apache
 #include motdsample
 include ssh
+include xyz
 }
