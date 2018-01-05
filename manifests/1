@@ -43,7 +43,7 @@ node default {
 include apache
 }
 node 'server2.abc.com' {
-#include apache
+include apache
 #include motdsample
 #include motd
 #include ssh
@@ -51,5 +51,5 @@ node 'server2.abc.com' {
 #include vsftpd
 #include roles
 #include roles::webserver
-include sample 
+#include sample 
 }
