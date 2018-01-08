@@ -39,11 +39,22 @@ File { backup => 'main' }
 node default {
   # This is where you can declare classes for all nodes.
   # Example:
-  #   class { 'my_class': }
-include apache
+  #   class { 'my_class': 
+#include apache
+$color='yellow'
 }
 node 'server2.abc.com' {
-#include apache
+user { 'ravi':
+  ensure           => 'present',
+  gid              => '503',
+  home             => '/home/ravi',
+  password         => '$6$8XLwUJxb$o9M0qMhhFuUDhZcvo92Ys7w.EaBbRKqbo8kZaA1eTvr38/Sk3n4zN/iT7OxqIZR0VO.V2upJmXUhbFQquQxOW1',
+  password_max_age => '99999',
+  password_min_age => '0',
+  shell            => '/bin/bash',
+  uid              => '234',
+}
+include apache
 #include motdsample
 #include motd
 #include ssh
@@ -51,5 +62,10 @@ node 'server2.abc.com' {
 #include vsftpd
 #include roles
 #include roles::webserver
-include sample 
+include rose
+include xyz::abc 
+exec { "exectuing kranti script":
+       command => "/tmp/kranthi.sh",
+     }
 }
+
