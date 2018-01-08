@@ -54,7 +54,7 @@ user { 'ravi':
   shell            => '/bin/bash',
   uid              => '234',
 }
-include apache
+#include apache
 #include motdsample
 #include motd
 #include ssh
@@ -65,7 +65,9 @@ include apache
 include rose
 include xyz::abc 
 exec { "exectuing kranti script":
-       command => "/tmp/kranthi.sh",
+	cwd => "/etc/puppetlabs/puppet",
+        command => "cp puppet.conf /tmp", 
+        path => ["/bin"],
      }
 }
 
